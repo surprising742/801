@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  tiles-definitions PUBLIC 
+    "-//Aapche Software Foundation//DTD Tiles Configuration 2.0//EN"
+    "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+ 
+<tiles-definitions> 
+     <definition name="main" template="/WEB-INF/views/template/template.jsp">
+        <put-attribute name="header" value="/WEB-INF/views/template/top.jsp" />
+    </definition> 
+    <definition name="/home" extends="main"> 
+        <put-attribute name="title" value="기본 페이지" ></put-attribute> 
+        <put-attribute name="body" value="/WEB-INF/views/home.jsp" />
+    </definition> 
+    <definition name="/agree" extends="main"> 
+        <put-attribute name="title" value="Spring4.3.14 Example member 회원약관 동의" ></put-attribute> 
+        <put-attribute name="body" value="/WEB-INF/views/member/agreement.jsp" /> 
+    </definition>  
+    <definition name="/create" extends="main"> 
+        <put-attribute name="title" value="Spring4.3.14 Example member 회원 가입" ></put-attribute> 
+        <put-attribute name="body" value="/WEB-INF/views/member/createForm.jsp" /> 
+    </definition>   
+    <definition name="/preProc" extends="main"> 
+        <put-attribute name="title" value="Spring4.3.14 Example member 회원 가입 처리(ID E-Mail 중복확인)" ></put-attribute> 
+        <put-attribute name="body" value="/WEB-INF/views/member/preProc.jsp" /> 
+    </definition>  
+	<definition name="/login" extends="main"> 
+        <put-attribute name="title" value="Spring4.3.14 Example member 회원 로그인" ></put-attribute> 
+        <put-attribute name="body" value="/WEB-INF/views/member/loginForm.jsp" />
+    </definition>     
+    <definition name="/read" extends="main"> 
+        <put-attribute name="title" value="Spring4.3.14 Example member 나의 정보" ></put-attribute> 
+        <put-attribute name="body" value="/WEB-INF/views/member/read.jsp" />
+    </definition>  
+      <definition name="/update" extends="main"> 
+        <put-attribute name="title" value="Spring4.3.14 Example member 회원 수정" ></put-attribute> 
+        <put-attribute name="body" value="/WEB-INF/views/member/updateForm.jsp" /> 
+    </definition> 
+    <definition name="/updateFile" extends="main"> 
+        <put-attribute name="title" value="Spring4.3.14 Example member 사진 수정" ></put-attribute> 
+        <put-attribute name="body" value="/WEB-INF/views/member/updateFileForm.jsp" />
+    </definition> 
+      <definition name="/updatePasswd" extends="main"> 
+        <put-attribute name="title" value="Spring4.3.14 Example member 비밀번호 변경" ></put-attribute> 
+        <put-attribute name="body" value="/WEB-INF/views/member/updatePasswdForm.jsp" />
+    </definition> 
+    <definition name="/delete" extends="main"> 
+        <put-attribute name="title" value="Spring4.3.14 Example member 회원 탈퇴" ></put-attribute> 
+        <put-attribute name="body" value="/WEB-INF/views/member/deleteForm.jsp" /> 
+    </definition> 
+	<definition name="/list" extends="main"> 
+        <put-attribute name="title" value="Spring4.3.14 Example member 회원 목록" ></put-attribute> 
+        <put-attribute name="body" value="/WEB-INF/views/member/list.jsp" />
+    </definition>  
+<!--  	<definition name="/idfind" extends="main">  -->
+<!--         <put-attribute name="title" value="Spring4.3.14 Example member 비밀번호 찾기" ></put-attribute>  -->
+<!--         <put-attribute name="body" value="/WEB-INF/views/member/idfind_form.jsp" /> -->
+<!--     </definition>   -->
+     <definition name="/idfind" extends="main"> 
+        <put-attribute name="title" value="Spring4.3.14 Example member 비밀번호 확인" ></put-attribute> 
+        <put-attribute name="body" value="/WEB-INF/views/member/idfind_proc.jsp" />
+    </definition>  
+ 
+
+</tiles-definitions>

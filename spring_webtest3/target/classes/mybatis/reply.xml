@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="spring.model.mapper.ReplyMapper">
+
+	<select id="total" parameterType="int" resultType="int">
+	select count(*) from reply
+	where bbsno=#{bbsno}
+ 
+	</select>
+
+	<select id="list" parameterType="Map" resultType="ReplyDTO">
+	select rnum,content, to_char(regdate,'yyyy-mm-dd')regdate,id,bbsno,r
+	from(
+	    select rnum, content, regdate, id, bbsno, rownum r
+		    from(
+		        select rnum,content,regdate,id,bbsno
+		        from reply
+		        where bbsno=#{bbsno}
+		        order by rnum desc
+		    )
+		    <![CDATA[
+	)where r >= #{sno} and r <= #{eno}
+	]]>
+	</select>
+
+
+</mapper>

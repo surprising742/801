@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  tiles-definitions PUBLIC 
+    "-//Aapche Software Foundation//DTD Tiles Configuration 2.0//EN"
+    "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+ 
+<tiles-definitions> 
+    <definition name="/memo/create" extends="main"> 
+        <put-attribute name="title" value="Spring4.3.14 Example memo 생성" ></put-attribute> 
+        <put-attribute name="body" value="/WEB-INF/views/memo/createForm.jsp" /> 
+    </definition>  
+    <definition name="/memo/read" extends="main"> 
+        <put-attribute name="title" value="Spring4.3.14 Example memo 읽기" ></put-attribute> 
+        <put-attribute name="body" value="/WEB-INF/views/memo/read.jsp" />
+    </definition>  
+      <definition name="/memo/update" extends="main"> 
+        <put-attribute name="title" value="Spring4.3.14 Example memo 수정" ></put-attribute> 
+        <put-attribute name="body" value="/WEB-INF/views/memo/updateForm.jsp" /> 
+    </definition> 
+    <definition name="/memo/delete" extends="main"> 
+        <put-attribute name="title" value="Spring4.3.14 Example memo 삭제" ></put-attribute> 
+        <put-attribute name="body" value="/WEB-INF/views/memo/deleteForm.jsp" /> 
+    </definition> 
+	<definition name="/memo/list" extends="main"> 
+        <put-attribute name="title" value="Spring4.3.14 Example memo 목록" ></put-attribute> 
+        <put-attribute name="body" value="/WEB-INF/views/memo/list.jsp" />
+    </definition>  
+    <definition name="/memo/preProc" extends="main"> 
+        <put-attribute name="title" value="Spring4.3.14 Example memo 비밀번호 오류" ></put-attribute> 
+        <put-attribute name="body" value="/WEB-INF/views/memo/preProc.jsp" />
+    </definition> 
+
+
+</tiles-definitions>

@@ -1,0 +1,39 @@
+{
+  "ecmaVersion": 5,
+  "plugins": {
+    "outline": {
+      
+    },
+    "gas": {
+      
+    },
+    "browser-extension": {
+      
+    },
+    "ckeditor4.4.x": {
+      
+    },
+    "gcharts": {
+      
+    },
+    "gmaps3.frozen": {
+      
+    },
+    "bootstrap": {
+      
+    },
+    "jquery-ui1-12": {
+      
+    },
+    "jquery-extension": {
+      
+    },
+    "jquery-mobile1.5": {
+      
+    }
+  },
+  "libs": [
+    "browser",
+    "jquery"
+  ]
+}
