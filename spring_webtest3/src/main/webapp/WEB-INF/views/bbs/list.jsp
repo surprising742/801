@@ -29,9 +29,12 @@
 				<select class="form-control" name="col">
 
 					<option value="wname" <c:if test="${col=='wname' }">selected</c:if>>성명</option>
-					<option value="title" <c:if test="${col=='title' }">selected</c:if>>제목	</option>
-					<option value="content"<c:if test="${col=='content' }">selected</c:if>>내용</option>
-					<option value="title_content"<c:if test="${col=='title_content' }">selected</c:if>>제목+내용</option>
+					<option value="title" <c:if test="${col=='title' }">selected</c:if>>제목
+					</option>
+					<option value="content"
+						<c:if test="${col=='content' }">selected</c:if>>내용</option>
+					<option value="title_content"
+						<c:if test="${col=='title_content' }">selected</c:if>>제목+내용</option>
 					<option value="total" <c:if test="${col=='total' }">selected</c:if>>전체</option>
 
 				</select>
@@ -40,9 +43,13 @@
 				<input type="text" class="form-control" placeholder="Enter 검색어"
 					name="word" value="${word}">
 			</div>
-			<button class="btn btn-default"><span class="glyphicon glyphicon-search"></span>검색</button>
+			<button class="btn btn-default">
+				<span class="glyphicon glyphicon-search"></span>검색
+			</button>
 			<button type="button" class="btn btn-default"
-				onclick="location.href='create'"><span class="glyphicon glyphicon-plus"></span>등록</button>
+				onclick="location.href='create'">
+				<span class="glyphicon glyphicon-plus"></span>등록
+			</button>
 		</form>
 
 		<table class="table table-striped">
@@ -60,39 +67,38 @@
 
 				<c:choose>
 					<c:when test="${empty list }">
-						<tr><td colspan="6">등록된 글이 없습니다.</td>
+						<tr>
+							<td colspan="6">등록된 글이 없습니다.</td>
 					</c:when>
-					
+
 					<c:otherwise>
 						<c:forEach var="dto" items="${list }">
-				<tr>
-					<td>${dto.bbsno}</td>
-					<td>
-					
-					<c:forEach begin="1" end="${dto.indent }">
+							<tr>
+								<td>${dto.bbsno}</td>
+								<td><c:forEach begin="1" end="${dto.indent }">
 						&nbsp;&nbsp;
-					</c:forEach>
-					
-					<c:if test="${dto.indent > 0 }">
-					
-					<img src='${pageContext.request.contextPath}/images/re.jpg'>
-					
-					</c:if>
-					<a href="javascript:read('${dto.bbsno}')">${dto.title}</a>
-						<c:if test="${util:newImg(dto.wdate) }">
-							<img src ="${pageContext.request.contextPath}/images/new.gif">
-						</c:if>
-							 
-					</td>
-					<td>${dto.wname}</td>
-					<td>${dto.grpno}</td>
-					<td>${dto.indent}</td>
-					<td>${dto.ansnum}</td>
-				</tr>
-				
-				
+					</c:forEach> <c:if test="${dto.indent > 0 }">
+
+										<img src='${pageContext.request.contextPath}/images/re.jpg'>
+
+									</c:if> 
+									<c:set var="rcount" value="${util:rcount(dto.bbsno,rmapper) }" />
+									<a href="javascript:read('${dto.bbsno}')">${dto.title}</a> 
+									<c:if test="${rcount>0 }">
+										<span class="badge">${rcount}</span>
+									</c:if> 
+									<c:if test="${util:newImg(dto.wdate) }">
+										<img src="${pageContext.request.contextPath}/images/new.gif">
+									</c:if></td>
+								<td>${dto.wname}</td>
+								<td>${dto.grpno}</td>
+								<td>${dto.indent}</td>
+								<td>${dto.ansnum}</td>
+							</tr>
+
+
 						</c:forEach>
-					
+
 					</c:otherwise>
 				</c:choose>
 			</tbody>

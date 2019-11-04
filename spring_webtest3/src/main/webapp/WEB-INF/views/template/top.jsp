@@ -44,7 +44,7 @@
 					alt="Cinque Terre"></a>
 			</div>
 			<div class="col-sm-8">
-				<a href="${root }"><h1>HOMEPAGE</h1></a>
+				<a href="${root }"><h1>HOMEPAGE<span class="glyphicon glyphicon-home"></span></h1></a>
 				
     			<p id="grade">${str }</p> 
    				

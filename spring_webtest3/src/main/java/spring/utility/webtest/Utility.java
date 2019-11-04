@@ -12,8 +12,15 @@ import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
-public class Utility {
+import spring.model.mapper.ReplyMapper;
 
+public class Utility {
+	
+	
+	public static int rcount(int bbsno,ReplyMapper mapper) {
+		return mapper.rcount(bbsno);
+	}
+	
 	public static String checkNull(String str) {
 		if (str == null) {
 			str = "";

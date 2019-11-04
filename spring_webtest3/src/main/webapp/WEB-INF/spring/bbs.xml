@@ -20,7 +20,7 @@
     </definition>
     
     <definition name="/bbs/update" extends="main"> 
-        <put-attribute name="title" value="게시글 조회" ></put-attribute> 
+        <put-attribute name="title" value="게시글 수정" ></put-attribute> 
         <put-attribute name="body" value="/WEB-INF/views/bbs/UpdateForm.jsp" /> 
     </definition>
     

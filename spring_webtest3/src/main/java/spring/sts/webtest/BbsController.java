@@ -18,14 +18,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import spring.model.bbs.BbsDTO;
 import spring.model.mapper.BbsMapper;
+import spring.model.mapper.ReplyMapper;
 import spring.utility.webtest.Utility;
 
 @Controller
 public class BbsController {
 	@Autowired
 	private BbsMapper mapper;
+	@Autowired
+	private ReplyMapper rmapper;
 	
 	private static final Logger logger=LoggerFactory.getLogger(BbsController.class);
+	
+
+	
 	@RequestMapping("/bbs/list")
 	public String list(HttpServletRequest request) {
 		
@@ -66,6 +72,7 @@ public class BbsController {
 		request.setAttribute("word", word);
 		request.setAttribute("nowPage", nowPage);
 		request.setAttribute("paging", paging);
+		request.setAttribute("rmapper", rmapper);
 		
 		return "/bbs/list";
 	}

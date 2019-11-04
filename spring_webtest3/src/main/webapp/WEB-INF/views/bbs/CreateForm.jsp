@@ -16,7 +16,7 @@
 <body>
 
 	<div class="container">
-		<h1 class="col-sm-offset-2 col-sm-10">게시판생성</h1>
+		<h1 class="col-sm-offset-2 col-sm-10">글 등록</h1>
 		<form class="form-horizontal" action="create" method="post">
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="wname">작성자:</label>

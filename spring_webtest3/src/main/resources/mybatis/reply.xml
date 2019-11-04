@@ -5,6 +5,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="spring.model.mapper.ReplyMapper">
 
+
+	<select id="rcount" parameterType="int" resultType="int">
+	select count(*) from reply
+	where bbsno = #{bbsno}
+	</select>
+	
+	
 	<update id="update" parameterType="ReplyDTO">
 		update reply
 		set content =

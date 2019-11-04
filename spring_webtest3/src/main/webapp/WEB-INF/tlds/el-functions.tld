@@ -20,4 +20,10 @@
     	<function-class>spring.utility.webtest.Utility</function-class>
     	<function-signature>java.lang.String getCodeValue(java.lang.String)</function-signature>
     </function>
+     <function>
+    	<description>댓글수 보여주기</description>
+    	<name>rcount</name>
+    	<function-class>spring.utility.webtest.Utility</function-class>
+    	<function-signature>int rcount(int,spring.model.mapper.ReplyMapper)</function-signature>
+    </function>
 </taglib>
