@@ -40,7 +40,7 @@
 	<div class="container">
 		<div class="page-header row">
 			<div class="col-sm-4">
-				<a href="${root }"><img src="${root }/images/best.png" class="img-responsive img-thumbnail"
+				<a href="${root }"><img src="${root }/images/야타.jpg" class="img-responsive img-thumbnail"
 					alt="Cinque Terre"></a>
 			</div>
 			<div class="col-sm-8">
@@ -54,13 +54,13 @@
 		<ul class="nav nav-tabs">
 			<li class="active"><a href="${root }">Home</a></li>
 			<li class="dropdown"><a class="dropdown-toggle"
-				data-toggle="dropdown" href="#">메모<span class="caret"></span></a>
+				data-toggle="dropdown" href="#">메모<span class="glyphicon glyphicon-arrow-down"></span></a>
 				<ul class="dropdown-menu">
 					<li><a href="${root }/memo/list">메모 목록</a></li>
 					<li><a href="${root }/memo/create">메모 생성</a></li>
 				</ul></li>
 			<li class="dropdown"><a class="dropdown-toggle"
-				data-toggle="dropdown" href="#">게시판<span class="caret"></span></a>
+				data-toggle="dropdown" href="#">게시판<span class="glyphicon glyphicon-arrow-down"></span></a>
 				<ul class="dropdown-menu">
 					<li><a href="${root }/bbs/list">게시판 목록</a></li>
 					<li><a href="${root }/bbs/create">게시판 생성</a></li>
@@ -73,7 +73,9 @@
  --%>			<c:choose>
 				<c:when test="${empty sessionScope.id }">
 					<li><a href="${root }/member/agree">회원가입</a></li>
-					<li><a href="${root }/member/login">로그인</a></li>
+					<li><a href="${root }/member/login"><span class="glyphicon glyphicon-log-in"></span>로그인</a></li>
+					
+				
 				</c:when>
 				<c:otherwise>
 					<li><a href="${root }/member/read"><span class="glyphicon glyphicon-user"></span>나의정보</a></li>

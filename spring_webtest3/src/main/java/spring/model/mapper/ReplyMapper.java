@@ -9,5 +9,8 @@ public interface ReplyMapper {
 	
 	List<ReplyDTO> list(Map map);
 	int total(int bbsno);
-	
+	int create(ReplyDTO dto);
+	ReplyDTO read(int rnum);
+	int delete(int rnum);
+	int update(ReplyDTO dto);
 }

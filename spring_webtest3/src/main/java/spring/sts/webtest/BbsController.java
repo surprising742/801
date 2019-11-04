@@ -24,13 +24,8 @@ import spring.utility.webtest.Utility;
 public class BbsController {
 	@Autowired
 	private BbsMapper mapper;
-//	private Bbsmapper mapper;
 	
 	private static final Logger logger=LoggerFactory.getLogger(BbsController.class);
-	
-	
-	
-	
 	@RequestMapping("/bbs/list")
 	public String list(HttpServletRequest request) {
 		
@@ -91,37 +86,45 @@ public class BbsController {
 	}
 	
 	@GetMapping("/bbs/read")
-	public String read(int bbsno, Model model,HttpServletRequest request,String col,String word,int nowPage) {
-		mapper.upViewcnt(bbsno);
-		BbsDTO dto=mapper.read(bbsno);
-		String content=dto.getContent().replaceAll("\r\n", "<br>");
-		model.addAttribute("dto", dto);
-				
-		/* 댓글관련 시작 */
-	int nPage =1; //시작 페이지 번호 1부터
-	
-	if(request.getParameter("nPage")!=null) {
-		nPage=Integer.parseInt(request.getParameter("nPage"));
+	public String read(int bbsno, 
+	Model model,
+	HttpServletRequest request,
+	int nowPage, 
+	String col, 
+	String word) {
+	    mapper.upViewcnt(bbsno);
+	    
+	    BbsDTO dto = mapper.read(bbsno);
+	     
+	    dto.setContent(dto.getContent().replaceAll("\r\n", "<br>")); 
+	    
+	    model.addAttribute("dto", dto);
+	 
+	    /* 댓글 관련  시작 */
+	int nPage= 1; //시작 페이지 번호는 1부터 
+	 
+	if (request.getParameter("nPage") != null) { 
+	nPage= Integer.parseInt(request.getParameter("nPage"));  
 	}
-		int recordPerPage=3; //한페이지당 출력레코드 수 
-		
-		int sno= ((nPage-1)*recordPerPage)+1;
-		int eno = nPage * recordPerPage;
-		
-		Map map = new HashMap();
-		map.put("sno",sno);
-		map.put("eno",eno);
-		map.put("bbsno",bbsno);
-		map.put("nPage",nPage);
-		map.put("nowPage",nowPage);
-		map.put("col",col);
-		map.put("word",word);
-		
-		model.addAllAttributes(map);
-		
-		
-		
-		return "/bbs/read";
+	int recordPerPage = 3; // 한페이지당 출력할 레코드 갯수
+	 
+	int sno = ((nPage-1) * recordPerPage) + 1; // 
+	int eno = nPage * recordPerPage;
+	 
+	Map map = new HashMap();
+	map.put("sno", sno);
+	map.put("eno", eno);
+	map.put("bbsno", bbsno);
+	map.put("nPage", nPage);
+	map.put("nowPage", nowPage);
+	map.put("col", col);
+	map.put("word", word);
+	 
+	model.addAllAttributes(map);
+	 
+	/* 댓글 관련 끝 */  
+	 
+	return "/bbs/read";
 	}
 	@GetMapping("/bbs/update")
 	public String update(int bbsno, Model model) {

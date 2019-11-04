@@ -5,22 +5,51 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="spring.model.mapper.ReplyMapper">
 
+	<update id="update" parameterType="ReplyDTO">
+		update reply
+		set content =
+		#{content}
+		where rnum = #{rnum}
+
+	</update>
+
+	<delete id="delete" parameterType="int">
+		delete from REPLY
+		where rnum = #{rnum}
+	</delete>
+
+	<select id="read" parameterType="int" resultType="ReplyDTO">
+		select * from
+		reply
+		where rnum = #{rnum}
+	</select>
+
+	<insert id="create" parameterType="ReplyDTO">
+		insert into reply(rnum,
+		content, regdate, id, bbsno)
+		values((select nvl(max(rnum),0)+1 from
+		reply), #{content}, sysdate, #{id}, #{bbsno})
+	</insert>
+
 	<select id="total" parameterType="int" resultType="int">
-	select count(*) from reply
-	where bbsno=#{bbsno}
- 
+		select
+		count(*) from reply
+		where bbsno=#{bbsno}
+
 	</select>
 
 	<select id="list" parameterType="Map" resultType="ReplyDTO">
-	select rnum,content, to_char(regdate,'yyyy-mm-dd')regdate,id,bbsno,r
-	from(
-	    select rnum, content, regdate, id, bbsno, rownum r
-		    from(
-		        select rnum,content,regdate,id,bbsno
-		        from reply
-		        where bbsno=#{bbsno}
-		        order by rnum desc
-		    )
+		select rnum,content, to_char(regdate,'yyyy-mm-dd')regdate,id,bbsno,r
+		from(
+		select rnum, content, regdate, id, bbsno, rownum r
+		from(
+		select
+		rnum,content,regdate,id,bbsno
+		from reply
+		where bbsno=#{bbsno}
+		order by
+		rnum desc
+		)
 		    <![CDATA[
 	)where r >= #{sno} and r <= #{eno}
 	]]>

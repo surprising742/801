@@ -29,6 +29,14 @@
 		<form class="form-horizontal"
 			action="${pageContext.request.contextPath }/member/login"
 			method="post" name="aa">
+<!-- 			히든(가져가야할 값 무엇을위해 ? ) ->> 다시 읽고있는 페이지로 돌아가기위해 -->
+		<input type="hidden" name="rurl" value="${param.rurl }">
+		<input type="hidden" name="bbsno" value="${param.bbsno}">
+		<input type="hidden" name="nowPage" value="${param.nowPage}">
+		<input type="hidden" name="nPage" value="${param.nPage }">
+		<input type="hidden" name="col" value="${param.col }">
+		<input type="hidden" name="word" value="${param.word }">
+			
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="id">아이디</label>
 				<div class="col-sm-4">
