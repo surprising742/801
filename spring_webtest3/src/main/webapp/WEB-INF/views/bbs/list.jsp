@@ -40,9 +40,9 @@
 				<input type="text" class="form-control" placeholder="Enter 검색어"
 					name="word" value="${word}">
 			</div>
-			<button class="btn btn-default">검색</button>
+			<button class="btn btn-default"><span class="glyphicon glyphicon-search"></span>검색</button>
 			<button type="button" class="btn btn-default"
-				onclick="location.href='create'">등록</button>
+				onclick="location.href='create'"><span class="glyphicon glyphicon-plus"></span>등록</button>
 		</form>
 
 		<table class="table table-striped">

@@ -78,11 +78,11 @@
 
 		</div>
 
-		<button class="btn btn-default" onclick="location.href='./create'">등록</button>
-		<button class="btn btn-default" onclick="updateb('${param.bbsno}')">수정</button>
-		<button class="btn btn-default" onclick="deleteb('${param.bbsno}')">삭제</button>
-		<button class="btn btn-default" onclick="listb()">목록</button>
-		<button class="btn btn-default" onclick="replyb('${param.bbsno}')">답변</button>
+		<button class="btn btn-default" onclick="location.href='./create'"><span class="glyphicon glyphicon-ok"></span>등록</button>
+		<button class="btn btn-default" onclick="updateb('${param.bbsno}')"><span class="glyphicon glyphicon-pencil"></span>수정</button>
+		<button class="btn btn-default" onclick="deleteb('${param.bbsno}')"><span class="glyphicon glyphicon-remove"></span>삭제</button>
+		<button class="btn btn-default" onclick="listb()"><span class="glyphicon glyphicon-th-list"></span>목록</button>
+		<button class="btn btn-default" onclick="replyb('${param.bbsno}')"><span class="glyphicon glyphicon-option-vertical"></span>답변</button>
 		<br><br>
 		<div class='row'>
 			<div class="col-lg-12">

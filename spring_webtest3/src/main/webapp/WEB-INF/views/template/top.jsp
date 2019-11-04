@@ -52,7 +52,7 @@
 		</div>
 
 		<ul class="nav nav-tabs">
-			<li class="active"><a href="${root }">Home</a></li>
+			<li class="active"><a href="${root }">Home<span class="glyphicon glyphicon-home"></span></a></li>
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#">메모<span class="glyphicon glyphicon-arrow-down"></span></a>
 				<ul class="dropdown-menu">
@@ -72,7 +72,7 @@
 				</ul></li>
  --%>			<c:choose>
 				<c:when test="${empty sessionScope.id }">
-					<li><a href="${root }/member/agree">회원가입</a></li>
+					<li><a href="${root }/member/agree"><span class="glyphicon glyphicon-edit"></span>회원가입</a></li>
 					<li><a href="${root }/member/login"><span class="glyphicon glyphicon-log-in"></span>로그인</a></li>
 					
 				
@@ -83,7 +83,7 @@
 				</c:otherwise>
 			</c:choose>
 			<c:if test="${not empty sessionScope.id && sessionScope.grade=='A' }">
-				<li><a href="${root }/admin/list">회원 목록</a></li>
+				<li><a href="${root }/admin/list"><span class="glyphicon glyphicon-list"></span>회원 목록</a></li>
 			</c:if>			
 		</ul>
 	</div>
