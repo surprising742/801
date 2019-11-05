@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="spring.model.mapper.ImgMapper">
+
+
+	<select id="read" parameterType="int" resultType="ImgDTO">
+		select * from img
+		where imgno=#{imgno}
+	</select>
+	
+	<select id="imgRead" parameterType="int" resultType="Map">
+			SELECT * FROM 
+	  ( 	
+	     select   
+	         lag(imgno,2)     over (order by imgno ) pre_imgno2,  
+	         lag(imgno,1)     over (order by imgno ) pre_imgno1, 
+	         imgno,
+	         lead(imgno,1)    over (order by imgno ) next_imgno1,  
+	         lead(imgno,2)    over (order by imgno ) next_imgno2,
+	         
+	         
+	           
+	         lag(filename,2)  over (order by imgno ) pre_file2,   
+	         lag(filename,1)  over (order by imgno ) pre_file1,
+	         filename, 
+	         lead(filename,1) over (order by imgno ) next_file1,
+	         lead(filename,2) over (order by imgno ) next_file2 
+	     from ( 
+	          SELECT imgno, filename  
+	          FROM img
+	          ORDER BY imgno desc
+	     ) 
+	  ) 
+	  WHERE imgno = #{imgno}
+	</select>
+	
+	
+</mapper>
